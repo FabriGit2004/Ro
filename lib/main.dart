@@ -62,7 +62,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
         lookingRight = true;
       }
 
-      // Avanzar de nivel si se llega al extremo derecho y enemigo derrotado
       if (knightPos > 0.9 && enemyDefeated && level < 2) {
         level++;
         knightPos = 0;
@@ -71,7 +70,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
         _heartController.stop();
       }
 
-      // En nivel 3 (index 2) mostrar corazón si cerca de princesa y enemigo derrotado
       if (level == 2 && (knightPos - princessPosX).abs() < 0.25) {
         if (!showHeart) {
           showHeart = true;
@@ -96,7 +94,7 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = 390.0; // Fijo para iPhone 13
+    final screenWidth = 390.0;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -110,7 +108,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
               ),
             ),
 
-            // Enemigo (solo si no derrotado y nivel < 3)
             if (!enemyDefeated && level < 2)
               Positioned(
                 left: enemyPosX * screenWidth,
@@ -118,7 +115,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
                 child: Image.asset('assets/enemy.png', width: 60),
               ),
 
-            // Princesa solo nivel 3 (index 2)
             if (level == 2)
               Positioned(
                 left: princessPosX * screenWidth - 20,
@@ -126,7 +122,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
                 child: Image.asset('assets/princess.png', width: 60),
               ),
 
-            // Corazón animado cerca de princesa en nivel 3
             if (showHeart)
               Positioned(
                 left: (princessPosX * screenWidth) - 10,
@@ -137,7 +132,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
                 ),
               ),
 
-            // Caballerito
             Positioned(
               left: knightPos * screenWidth,
               bottom: 100,
@@ -149,7 +143,6 @@ class _PixelKnightGameState extends State<PixelKnightGame> with SingleTickerProv
               ),
             ),
 
-            // Controles
             Positioned(
               bottom: 20,
               left: 20,
