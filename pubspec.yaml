@@ -1,0 +1,23 @@
+name: caballerito_pixel_game
+description: Juego Flutter Web estilo 32 bits con 3 niveles y princesa final.
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/knight.png
+    - assets/princess.png
+    - assets/enemy.png
+    - assets/sword.png
+    - assets/heart.png
+    - assets/bg1.png
+    - assets/bg2.png
+    - assets/bg3.png
